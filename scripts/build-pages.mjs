@@ -1,15 +1,14 @@
-// Build a site for GitHub Pages. Default site: yardcalc.
-// Set SOE_SITE=agentforge (etc.) to build another site in sites/.
+// Build YardCalc for GitHub Pages.
 //   Default: project-site subpath (https://<user>.github.io/<site>).
 //   Custom domain: set SOE_DOMAIN (e.g. yardcalc.xyz) — builds for the domain
 //   root (no basePath). Run with the local node copy:
-//   SOE_SITE=agentforge .bin/node.exe scripts/build-pages.mjs
+//   .bin/node.exe scripts/build-pages.mjs
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
-const SITE = process.env.SOE_SITE ?? "yardcalc";
+const SITE = "yardcalc";
 const site = join(root, "sites", SITE);
 
 const domain = process.env.SOE_DOMAIN;

@@ -33,7 +33,7 @@ importers:
         specifier: ^19.0.0
         version: 19.3.1(react@19.3.1)
 
-  sites/agentforge:
+  sites/butie:
     dependencies:
       '@soe/shared':
         specifier: workspace:*

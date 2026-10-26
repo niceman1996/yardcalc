@@ -10,9 +10,8 @@
 
 | 4 | 2026-10-26 | 主 agent | 遗留问题清零：全量数据核实（17 组价格逐项对源，DATA_VERIFIED=true）+ 域名探测（yardcalc.xyz 可注册）+ 自定义域名一键切换（SOE_DOMAIN）+ GSC 指引（docs/next-steps.md） | ✅ 完成 | 调价 3 组：碎石 $20-75/码、栅栏柱 $12-45/红木板 $30-140、保温袋 $15-25；FAQ/测试同步；线上已验证生效；新增 scripts/push-master.mjs（GCM 交互挂起时用 token 直推） |
 
-| 5 | 2026-10-26 | 主 agent | AgentForge 上线（agent 定制服务门户，英文）：sites/agentforge 全站（6 页 + sitemap/robots + JSON-LD）、内容契约测试 12 条、build/deploy 脚本参数化（SOE_SITE 多站）、run-tests.mjs 直调 vitest | ✅ 完成 | 51 测试绿（39+12）、smoke 7/7、8 端点公网 200 → https://niceman1996.github.io/agentforge/；联系邮箱暂用 QQ 邮箱待换商务邮箱（sites/agentforge/lib/site.ts） |
-| 6 | 2026-10-26 | 主 agent | 邮箱换 niceboyniu@gmail.com + docs/upwork-kit.md 获客包（资料文案/10 投标模板/定价与投标策略） | ✅ 完成 | GSC 与 Upwork 开号需本人操作，指引在 next-steps.md §四 |
 | 7 | 2026-10-26 | 主 agent（kimi-webbridge 操控锤大哥真实浏览器） | zl1.top 上线：阿里云解析控制台改记录（@ 4×A → GitHub Pages / www → CNAME / * 防漏 / 清理暂停的 1.1.1.1 条目）、Pages 绑定域名 API、zl1.top 专属构建部署 | ✅ 上线 | DNS 20 秒生效；http://zl1.top 200（HTTPS 证书签发中，enable-https.mjs 后台监视自动开启强制）；github.io 自动 301 主域；现有 A 记录原指向腾讯云 49.233.30.117 未备案拦截页，无业务损失 |
+| 8 | 2026-10-26 | 主 agent | AgentForge 源码拆分为独立项目，YardCalc 保留在当前仓库 | 🟡 进行中 | 本地 AgentForge 项目构建已通过；提交远端源码分支需 GCM 重新认证；原 `gh-pages` 未改动。独立项目日志在 `G:\ai\projects\agentforge\docs\log.md` |
 
 ## 关键技术事件留痕
 

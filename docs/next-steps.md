@@ -54,27 +54,13 @@ HTTPS 证书 GitHub Pages 自动签发（Let's Encrypt），无需操作。
 - **AdSense**：GSC 收录 + 有真实流量后申请（合规页已内置）
 - 域名切换后 GSC 记得添加新域名资源并做地址变更（agent 会提醒）
 
-## 四、AgentForge(agent 定制服务门户,已上线)— 剩 2 件人工事
-
-> 现状:https://niceman1996.github.io/agentforge/ 已上线(8 端点公网 200,51 测试绿)。
-> 联系邮箱已换 niceboyniu@gmail.com ✅。获客资料包已备好:docs/upwork-kit.md。
-
-1. **GSC 提交(约 5 分钟,需登录 Google,只有你能做)**:
-   1. 打开 https://search.google.com/search-console ,登录 niceboyniu@gmail.com
-   2. 「添加资源」→ 网址前缀 → 填 `https://niceman1996.github.io/agentforge`
-   3. 验证方式选 **HTML 标记**,把给出的 `content="…"` 值发给 agent,加进 layout 后重新部署即验证通过
-   4. 验证通过 → 站点地图 → 提交 `…/agentforge/sitemap.xml`(yardcalc 同流程再来一遍)
-2. **Upwork 开号**(身份验证必须本人):照 docs/upwork-kit.md §0 的 6 步走,资料/话术/策略全部现成。
-
 ## 附:本项目常用命令
 
 ```bash
-cd G:/ai/projects/ai/SOE
-./.bin/node.exe scripts/run-tests.mjs                 # 全量测试（当前 51/51：yardcalc 39 + agentforge 12；勿用 pnpm test，bin 壳会回落被拦的 node，见 log.md #6）
-./.bin/node.exe scripts/build-pages.mjs               # 构建站 1（默认 yardcalc）
-SOE_SITE=agentforge ./.bin/node.exe scripts/build-pages.mjs      # 构建站 2（AgentForge）
-./.bin/node.exe scripts/deploy-gh-pages.mjs           # 部署站 1 + 公网验证
-SOE_SITE=agentforge ./.bin/node.exe scripts/deploy-gh-pages.mjs # 部署站 2 + 公网验证
+cd G:/ai/projects/seo-tool-sites
+./.bin/node.exe scripts/run-tests.mjs                 # YardCalc tests (run directly to avoid blocked node shims; see log.md #6)
+./.bin/node.exe scripts/build-pages.mjs               # Build YardCalc
+./.bin/node.exe scripts/deploy-gh-pages.mjs           # Deploy YardCalc + public verification
 node scripts/serve-static.mjs sites/yardcalc/out 8080  # 本地预览
 ```
 

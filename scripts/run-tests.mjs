@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
-const sites = ["yardcalc", "agentforge"];
+const sites = ["yardcalc"];
 
 let failed = 0;
 for (const site of sites) {

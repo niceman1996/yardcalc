@@ -2,7 +2,7 @@
   "name": "soe",
   "private": true,
   "version": "0.1.0",
-  "description": "SOE batch tool-site program (US market, SEO + display ads). Site 1: YardCalc.",
+  "description": "YardCalc DIY material calculator site and shared tools.",
   "packageManager": "pnpm@11.20.0",
   "pnpm": {
     "onlyBuiltDependencies": ["esbuild", "@tailwindcss/oxide", "sharp"]
