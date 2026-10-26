@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { ComputeResult, ToolField } from "@/shared";
 import { NumberFieldShell, ResultRows } from "@/shared";
+import { trackCalculatorResult, trackCalculatorStart } from "@/lib/analytics";
 import { computeMap } from "@/lib/compute-map";
 
 export default function AppCalculator({
@@ -15,6 +16,8 @@ export default function AppCalculator({
   const [values, setValues] = useState<Record<string, string>>(() =>
     Object.fromEntries(fields.map((f) => [f.name, f.default != null ? String(f.default) : ""])),
   );
+  const hasStarted = useRef(false);
+  const hasTrackedResult = useRef(false);
 
   const result: ComputeResult | null = useMemo(() => {
     const nums: Record<string, number> = {};
@@ -34,6 +37,13 @@ export default function AppCalculator({
     }
   }, [values, fields, slug]);
 
+  useEffect(() => {
+    if (result && hasStarted.current && !hasTrackedResult.current) {
+      hasTrackedResult.current = true;
+      trackCalculatorResult(slug);
+    }
+  }, [result, slug]);
+
   return (
     <div>
       <div className="grid gap-4 sm:grid-cols-2">
@@ -47,7 +57,13 @@ export default function AppCalculator({
             max={f.max}
             step={f.step}
             value={values[f.name] ?? ""}
-            onInput={(v) => setValues((s) => ({ ...s, [f.name]: v }))}
+            onInput={(v) => {
+              if (!hasStarted.current) {
+                hasStarted.current = true;
+                trackCalculatorStart(slug);
+              }
+              setValues((s) => ({ ...s, [f.name]: v }));
+            }}
           />
         ))}
       </div>

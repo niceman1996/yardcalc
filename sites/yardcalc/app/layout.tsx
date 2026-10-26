@@ -2,10 +2,14 @@ import type { Metadata } from "next";
 import type { LinkItem } from "@/shared";
 import { SiteHeader, SiteFooter } from "@/shared";
 import { categories } from "@/lib/registry";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+import AdSenseLoader from "@/components/AdSenseLoader";
+import { getAdSensePublisherId } from "@/lib/adsense";
 import "./globals.css";
 
 const SITE_NAME = "YardCalc";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://yardcalc.pages.dev";
+const adsensePublisherId = getAdSensePublisherId();
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -23,6 +27,9 @@ export const metadata: Metadata = {
   verification: {
     google: "-B9bH2Tq907nNACPq7T4jLKYd_LEZivoeEFX4uDS3dc",
   },
+  ...(adsensePublisherId
+    ? { other: { "google-adsense-account": adsensePublisherId } }
+    : {}),
 };
 
 const headerLinks: LinkItem[] = categories.map((c) => ({
@@ -41,6 +48,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="min-h-screen bg-stone-100 antialiased">
+        <GoogleAnalytics />
+        <AdSenseLoader />
         <SiteHeader brand={SITE_NAME} links={headerLinks} />
         {children}
         <SiteFooter

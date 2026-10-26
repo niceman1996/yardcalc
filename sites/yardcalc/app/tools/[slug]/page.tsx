@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getRelated, getCategory, getTool, tools } from "@/lib/registry";
 import { JsonLd, ToolPageShell } from "@/shared";
 import AppCalculator from "@/components/AppCalculator";
+import AdSenseSlot from "@/components/AdSenseSlot";
 
 export function generateStaticParams() {
   return tools.map((t) => ({ slug: t.slug }));
@@ -89,6 +90,7 @@ export default async function ToolPage({
         related={related}
         calculator={<AppCalculator slug={tool.slug} fields={tool.fields} />}
       />
+      <AdSenseSlot />
     </>
   );
 }

@@ -16,7 +16,13 @@ export default function ContactPage() {
           to report a price that&apos;s out of date?
         </p>
         <p>
-          Email us at <span className="font-medium text-stone-800">hello@yardcalc.app</span>{" "}
+          Email us at{" "}
+          <a
+            className="font-medium text-stone-800 underline"
+            href="mailto:niceboyniu@gmail.com"
+          >
+            niceboyniu@gmail.com
+          </a>{" "}
           and we&apos;ll take a look. Correction reports about math or pricing are
           especially welcome — include your project dimensions and what you expected.
         </p>
