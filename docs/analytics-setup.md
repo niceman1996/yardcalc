@@ -1,8 +1,8 @@
 # YardCalc analytics setup
 
-YardCalc's production build is configured with GA4 Measurement ID `G-D8MHQP9BK9` in `sites/yardcalc/.env.production`. The ID is public and is not a password.
+YardCalc's production build is configured with GA4 Measurement ID `G-7H9N1VFV2E` in `sites/yardcalc/.env.production`. The ID is public and is not a password.
 
-1. The Google Analytics Web data stream for YardCalc provides Measurement ID `G-D8MHQP9BK9`.
+1. The Google Analytics Web data stream for YardCalc provides Measurement ID `G-7H9N1VFV2E`.
 2. Production builds read `NEXT_PUBLIC_GA_ID` from `sites/yardcalc/.env.production`.
 3. Rebuild and deploy YardCalc. The privacy page will then describe the analytics that are enabled.
 
